@@ -585,7 +585,8 @@ if (is_win) {
   if (host_os == "linux") {
     # Use clang for the x86/64 Linux host builds.
     if (host_cpu == "x86" || host_cpu == "x64") {
-      host_toolchain = "//build/toolchain/linux:clang_$host_cpu"
+      # android build for Dart requires to use 32-bit x86 architecture
+      host_toolchain = "//build/toolchain/linux:clang_x86"
     } else {
       host_toolchain = "//build/toolchain/linux:$host_cpu"
     }
